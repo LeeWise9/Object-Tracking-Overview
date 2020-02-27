@@ -10,12 +10,12 @@
 
 技术特点：第一帧的BBox由检测算法提供或由人工标注<br>
 技术难点（吴毅）：<br>
-1.外观变形，光照变化，快速运动和运动模糊，背景相似干扰等<br>
+* 外观变形，光照变化，快速运动和运动模糊，背景相似干扰等<br>
 <p align="center">
 	<img src="https://pic4.zhimg.com/80/v2-1169ca84d569b5f8aff728d0de563869_720w.jpg" alt="Sample"  width="700">
 </p>
 
-2.平面外旋转，平面内旋转，尺度变化，遮挡和出视野等情况等<br>
+* 平面外旋转，平面内旋转，尺度变化，遮挡和出视野等情况等<br>
 <p align="center">
 	<img src="https://pic3.zhimg.com/80/v2-3db98542589ec7abf17d52c20bcbdf12_720w.jpg" alt="Sample"  width="700">
 </p>
@@ -57,10 +57,10 @@ Struck，KCF，CN，DSST，SAMF，LCT，HCF，SRDCF<br>
 
 
 ## 方法分类：<br>
-1.生成（generative）模型方法：用当前帧目标特征建模，在下一帧寻找与模型最相似的区域。主要方法有卡尔曼滤波，粒子滤波，mean-shift等。典型算法[ASMS](https://github.com/vojirt/asms)（125fps）。<br>
-2.判别（discriminative）模型方法：以目标区域为正样本，背景区域为负样本，训练分类器。每一帧用训练好的分类器找最优区域。典型算法Struck（20fps）和TLD（28fps）。<br>
-3.深度学习（Deep ConvNet based）类方法。典型算法：[MDNet](http://cvlab.postech.ac.kr/research/mdnet/)，[TCNN](http://www.votchallenge.net/vot2016/download/44_TCNN.zip)，[SiamFC](http://www.robots.ox.ac.uk/~luca/siamese-fc.html)，[SiamFC-R](http://www.iqiyi.com/w_19ruirwrel.html#vfrm=8-8-0-1)。<br>
-4.相关滤波（correlation filter）类方法：典型算法：CSK（362fps），KCF（172fps），DCF（292fps），CN（152fps）。<br>
+* 生成（generative）模型方法：用当前帧目标特征建模，在下一帧寻找与模型最相似的区域。主要方法有卡尔曼滤波，粒子滤波，mean-shift等。典型算法[ASMS](https://github.com/vojirt/asms)（125fps）。<br>
+* 判别（discriminative）模型方法：以目标区域为正样本，背景区域为负样本，训练分类器。每一帧用训练好的分类器找最优区域。典型算法Struck（20fps）和TLD（28fps）。<br>
+* 深度学习（Deep ConvNet based）类方法。典型算法：[MDNet](http://cvlab.postech.ac.kr/research/mdnet/)，[TCNN](http://www.votchallenge.net/vot2016/download/44_TCNN.zip)，[SiamFC](http://www.robots.ox.ac.uk/~luca/siamese-fc.html)，[SiamFC-R](http://www.iqiyi.com/w_19ruirwrel.html#vfrm=8-8-0-1)。<br>
+* 相关滤波（correlation filter）类方法：典型算法：CSK（362fps），KCF（172fps），DCF（292fps），CN（152fps）。<br>
 
 
 
