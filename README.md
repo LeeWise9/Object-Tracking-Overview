@@ -1,5 +1,24 @@
 # 目标追踪<br>
-这是一篇关于目标追踪的综述，主要总结现有的常用数据集、目标追踪算法、研究热点等。
+这是一篇关于目标追踪的综述，主要总结现有的常用数据集、目标追踪算法、研究热点等。<br>
+
+## 目标跟踪：<br>
+任务背景：目标跟踪通常指单目标跟踪。跟踪目标由第一帧给定，可由人工标注或检测算法获取。跟踪算法再在后续帧紧跟此目标。<br>
+
+<p align="center">
+	<img src="https://pic3.zhimg.com/80/v2-518e71f77d3bf360a2728f32e63cdc6f_720w.jpg" alt="Sample"  width="700">
+</p>
+
+技术特点：第一帧的BBox由检测算法提供或由人工标注<br>
+技术难点（吴毅）：<br>
+1.外观变形，光照变化，快速运动和运动模糊，背景相似干扰等<br>
+<p align="center">
+	<img src="https://pic4.zhimg.com/80/v2-1169ca84d569b5f8aff728d0de563869_720w.jpg" alt="Sample"  width="700">
+</p>
+
+2.平面外旋转，平面内旋转，尺度变化，遮挡和出视野等情况等<br>
+<p align="center">
+	<img src="https://pic3.zhimg.com/80/v2-3db98542589ec7abf17d52c20bcbdf12_720w.jpg" alt="Sample"  width="700">
+</p>
 
 
 ## 常用数据集：<br>
@@ -34,19 +53,7 @@ VOT挑战赛平台与数据：[VOT Challenge | Challenges](http://votchallenge.n
 Struck，KCF，CN，DSST，SAMF，LCT，HCF，SRDCF<br>
 
 
-## 近年研究热点：<br>
-关键词：相关滤波<br>
-技术特点：第一帧的Bbox由检测算法提供或由人工标注<br>
-技术难点（吴毅）：<br>
-1.外观变形，光照变化，快速运动和运动模糊，背景相似干扰等<br>
-<p align="center">
-	<img src="https://pic4.zhimg.com/80/v2-1169ca84d569b5f8aff728d0de563869_720w.jpg" alt="Sample"  width="700">
-</p>
 
-2.平面外旋转，平面内旋转，尺度变化，遮挡和出视野等情况等<br>
-<p align="center">
-	<img src="https://pic3.zhimg.com/80/v2-3db98542589ec7abf17d52c20bcbdf12_720w.jpg" alt="Sample"  width="700">
-</p>
 
 
 ## 方法分类：<br>
