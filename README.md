@@ -63,8 +63,43 @@ Struck，KCF，CN，DSST，SAMF，LCT，HCF，SRDCF<br>
 * 相关滤波（correlation filter）类方法：典型算法：CSK（362fps），KCF（172fps），DCF（292fps），CN（152fps）。<br>
 
 
+### 生成模型法<br>
+生成模型的一个简单例子：从当前帧得知目标区域 80% 是红色、20% 是绿色，则在下一帧搜索寻找最符合这个颜色比例的区域。<br>
+ASMS 与 DAT 都是仅颜色特征的算法而且速度很快，分别是 VOT2015 的第 20名 和 14 名，在 VOT2016 分别是 32 名和 31 名(中等水平)。<br>
+ASMS 是 VOT2015 官方推荐的实时算法，平均帧率125FPS，在经典 mean-shift 框架下加入了尺度估计、经典颜色直方图特征，加入了两个先验(尺度不剧变+可能偏最大)作为正则项，和反向尺度一致性检查。
+
+
+### 判别模型法<br>
+OTB50 中大部分方法都是这一类，使用机器学习方法训练分类器，下一帧用训练好的分类器找最优区域。<br>
+<p align="center">
+	<img src="https://pic4.zhimg.com/80/v2-d2c2473036eda3641b1b689496b79609_720w.jpg" alt="Sample"  width="700">
+</p>
+
+分类器采用机器学习，训练中用到了背景信息，这样分类器就能专注区分前景和背景，所以判别类方法普遍都比生成类好。
+
+比如，训练时 tracker 得知目标 80% 是红色，20% 是绿色，且背景中有橘红色，这样的分类器获得了更多信息，效果也相对更好。
+
+Tracking-by-Detection 和检测算法非常相似。跟踪中为了尺度自适应也需要多尺度遍历搜索，区别仅在于跟踪算法对特征和在线机器学习的速度要求更高，检测范围和尺度更小。
+
+大多数情况检测识别算法复杂度比较高，这时候用复杂度较低的跟踪算法更合适，只需在跟踪失败 (drift) 或一定间隔以后再次检测初始化 tracker 即可。毕竟 FPS 是追踪类算法最重要的指标之一。
+
+Struck 和 TLD 都能实时跟踪，Struck 是 2012 年之前最好的方法，TLD是经典 long-term 的代表。
+
+
+### 深度学习方法<br>
+
+
+
+### 相关滤波方法<br>
+
+
+
+
+
+
 
 ## 参考文献：<br>
+* 作者：YaqiLYU，链接：https://www.zhihu.com/question/26493945/answer/156025576
 * Wu Y, Lim J, Yang M H. Online object tracking: A benchmark [C]// CVPR, 2013.<br>
 * Wu Y, Lim J, Yang M H. Object tracking benchmark [J]. TPAMI, 2015.<br>
 * Yilmaz A, Javed O, Shah M. Object tracking: A survey [J]. CSUR, 2006.<br>
