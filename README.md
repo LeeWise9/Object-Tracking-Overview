@@ -9,12 +9,12 @@ OTB50（OTB-2013），OTB100（OTB-2015）<br>
 VOT竞赛数据库：VOT2015，VOT2016<br>
 VOT挑战赛平台与数据：[VOT Challenge | Challenges](http://votchallenge.net/challenges.html)<br>
 
-OTB和VOT区别：<br>
-* 1.评价指标不同；<br>
-* 2.图像素质不同：OTB含25%灰度序列，VOT全彩色序列，VOT序列分辨率更高；<br>
-* 3.初始方法不同：OTB有随机帧、随机初始化方法；VOT是首帧初始化，每次跟踪失败5帧之后重新初始化；<br>
-* 4.VOT强调跟踪和检测应该兼并，跟踪过程中会多次初始化tracker；<br>
-* 5.VOT数据库每年更新，包括重新标注、改变评价指标等。<br>
+### OTB和VOT区别：<br>
+* 评价指标不同；<br>
+* 图像素质不同：OTB含25%灰度序列，VOT全彩色序列，VOT序列分辨率更高；<br>
+* 初始方法不同：OTB有随机帧、随机初始化方法；VOT是首帧初始化，每次跟踪失败5帧之后重新初始化；<br>
+* VOT强调跟踪和检测应该兼并，跟踪过程中会多次初始化tracker；<br>
+* VOT数据库每年更新，包括重新标注、改变评价指标等。<br>
 
 
 ## 2012年及之前相关工作：<br>
@@ -58,24 +58,24 @@ Struck，KCF，CN，DSST，SAMF，LCT，HCF，SRDCF<br>
 
 
 ## 参考文献：<br>
-Wu Y, Lim J, Yang M H. Online object tracking: A benchmark [C]// CVPR, 2013.<br>
-Wu Y, Lim J, Yang M H. Object tracking benchmark [J]. TPAMI, 2015.<br>
-Yilmaz A, Javed O, Shah M. Object tracking: A survey [J]. CSUR, 2006.<br>
-Kristan M, Pflugfelder R, Leonardis A, et al. The visual object tracking vot2013 challenge results [C]// ICCV, 2013.<br>
-Kristan M, Pflugfelder R, Leonardis A, et al. The Visual Object Tracking VOT2014 Challenge Results [C]// ECCV, 2014.<br>
-Kristan M, Matas J, Leonardis A, et al. The visual object tracking vot2015 challenge results [C]// ICCV, 2015.<br>
-Kristan M, Ales L, Jiri M, et al. The Visual Object Tracking VOT2016 Challenge Results [C]// ECCV, 2016.<br>
-Vojir T, Noskova J, Matas J. Robust scale-adaptive mean-shift for tracking [J]. Pattern Recognition Letters, 2014.<br>
-Hare S, Golodetz S, Saffari A, et al. Struck: Structured output tracking with kernels [J]. IEEE TPAMI, 2016. <br>
-Kalal Z, Mikolajczyk K, Matas J. Tracking-learning-detection [J]. IEEE TPAMI, 2012.<br>
-Nam H, Han B. Learning multi-domain convolutional neural networks for visual tracking [C]// CVPR, 2016.<br>
-Nam H, Baek M, Han B. Modeling and propagating cnns in a tree structure for visual tracking. arXiv preprint arXiv:1608.07242, 2016.<br>
-Bertinetto L, Valmadre J, Henriques J F, et al. Fully-convolutional siamese networks for object tracking [C]// ECCV, 2016.<br>
-Held D, Thrun S, Savarese S. Learning to track at 100 fps with deep regression networks [C]// ECCV, 2016.<br>
-Bolme D S, Beveridge J R, Draper B A, et al. Visual object tracking using adaptive correlation filters [C]// CVPR, 2010.<br>
-Henriques J F, Caseiro R, Martins P, et al. Exploiting the circulant structure of tracking-by- detection with kernels [C]// ECCV, 2012.<br>
-Henriques J F, Rui C, Martins P, et al. High-Speed Tracking with Kernelized Correlation Filters [J]. IEEE TPAMI, 2015.<br>
-Danelljan M, Shahbaz Khan F, Felsberg M, et al. Adaptive color attributes for real-time visual tracking [C]// CVPR, 2014.<br>
+* Wu Y, Lim J, Yang M H. Online object tracking: A benchmark [C]// CVPR, 2013.<br>
+* Wu Y, Lim J, Yang M H. Object tracking benchmark [J]. TPAMI, 2015.<br>
+* Yilmaz A, Javed O, Shah M. Object tracking: A survey [J]. CSUR, 2006.<br>
+* Kristan M, Pflugfelder R, Leonardis A, et al. The visual object tracking vot2013 challenge results [C]// ICCV, 2013.<br>
+* Kristan M, Pflugfelder R, Leonardis A, et al. The Visual Object Tracking VOT2014 Challenge Results [C]// ECCV, 2014.<br>
+* Kristan M, Matas J, Leonardis A, et al. The visual object tracking vot2015 challenge results [C]// ICCV, 2015.<br>
+* Kristan M, Ales L, Jiri M, et al. The Visual Object Tracking VOT2016 Challenge Results [C]// ECCV, 2016.<br>
+* Vojir T, Noskova J, Matas J. Robust scale-adaptive mean-shift for tracking [J]. Pattern Recognition Letters, 2014.<br>
+* Hare S, Golodetz S, Saffari A, et al. Struck: Structured output tracking with kernels [J]. IEEE TPAMI, 2016. <br>
+* Kalal Z, Mikolajczyk K, Matas J. Tracking-learning-detection [J]. IEEE TPAMI, 2012.<br>
+* Nam H, Han B. Learning multi-domain convolutional neural networks for visual tracking [C]// CVPR, 2016.<br>
+* Nam H, Baek M, Han B. Modeling and propagating cnns in a tree structure for visual tracking. arXiv preprint arXiv:1608.07242, 2016.<br>
+* Bertinetto L, Valmadre J, Henriques J F, et al. Fully-convolutional siamese networks for object tracking [C]// ECCV, 2016.<br>
+* Held D, Thrun S, Savarese S. Learning to track at 100 fps with deep regression networks [C]// ECCV, 2016.<br>
+* Bolme D S, Beveridge J R, Draper B A, et al. Visual object tracking using adaptive correlation filters [C]// CVPR, 2010.<br>
+* Henriques J F, Caseiro R, Martins P, et al. Exploiting the circulant structure of tracking-by- detection with kernels [C]// ECCV, 2012.<br>
+* Henriques J F, Rui C, Martins P, et al. High-Speed Tracking with Kernelized Correlation Filters [J]. IEEE TPAMI, 2015.<br>
+* Danelljan M, Shahbaz Khan F, Felsberg M, et al. Adaptive color attributes for real-time visual tracking [C]// CVPR, 2014.<br>
 
 
 
