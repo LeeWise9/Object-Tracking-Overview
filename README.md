@@ -196,12 +196,13 @@ HOG 对快速变形和快速运动效果不好，但对运动模糊及光照变�
 	<img src="https://pic3.zhimg.com/80/v2-3a4be80f75f32314ca049d3e490d69b3_720w.jpg" alt="Sample"  width="500">
 </p>
 
+<br>
 
-
-
-
-
-
+## 最新进展<br>
+目标跟踪近几年发展迅速，融合了相关滤波（Correlation Filter）和卷积神经网络（CNN）的跟踪方法已经占据了目标跟踪的大半江山。如下图给出的是 2014-2017 年以来表现排名靠前的一些跟踪方法。
+<p align="center">
+	<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE4LmNuYmxvZ3MuY29tL2Jsb2cvMTA1MzY2MS8yMDE4MDMvMTA1MzY2MS0yMDE4MDMwNjA5NTMzMjk3Mi00MjM4ODMzNDkucG5n?x-oss-process=image/format,png" alt="Sample"  width="500">
+</p>
 
 <br>
 <br>
