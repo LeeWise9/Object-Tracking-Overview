@@ -78,7 +78,7 @@ Struck 和 TLD 都能实时跟踪，Struck 是 2012 年之前最好的方法，T
 * VOT2015 的冠军 [MDNet](http://cvlab.postech.ac.kr/research/mdnet/)；<br>
 * VOT2016 的冠军 [TCNN](http://www.votchallenge.net/vot2016/download/44_TCNN.zip)；<br>
 * VOT2016 成绩优异的基于 ResNet 的 [SiamFC-R](http://www.iqiyi.com/w_19ruirwrel.html#vfrm=8-8-0-1)；<br>
-* 速度突出的 的[SiamFC](http://www.robots.ox.ac.uk/~luca/siamese-fc.html)（80FPS）；<br>
+* 速度突出的 的 [SiamFC](http://www.robots.ox.ac.uk/~luca/siamese-fc.html)（80FPS）；<br>
 * 速度更快的 GOTURN（100FPS），牺牲性能换取速度。<br>
 （这些方法可以在王强维护的 [benchmark_results](https://github.com/foolwood/benchmark_results) 中找到）
 
