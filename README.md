@@ -36,26 +36,6 @@ VOT挑战赛平台与数据：[VOT Challenge | Challenges](http://votchallenge.n
 * VOT数据库每年更新，包括重新标注、改变评价指标等。<br>
 
 
-## 2012年及之前相关工作：<br>
-29个顶尖的tracker在OTB100数据集上的表现：<br>
-按性能排序：Struck>SCM>ASLA；按速度排序：CSK(362fps)>CT(64fps)>TLD(28)。<br>
-
-<p align="center">
-	<img src="https://pic3.zhimg.com/80/v2-63db35d3d2f57965cea3c7226b759e60_720w.jpg" alt="Sample"  width="500">
-</p>
-
-<p align="center">
-	<img src="https://pic3.zhimg.com/80/v2-92fe48e735d4978c81073808a4ae1585_720w.jpg" alt="Sample"  width="500">
-</p>
-
-
-## 2013-2017 SOTA：<br>
-Struck，KCF，CN，DSST，SAMF，LCT，HCF，SRDCF<br>
-
-
-
-
-
 ## 方法分类：<br>
 * 生成（generative）模型方法。典型算法[ASMS](https://github.com/vojirt/asms)（125fps）。<br>
 * 判别（discriminative）模型方法。典型算法Struck（20fps）和TLD（28fps）。<br>
@@ -104,20 +84,39 @@ Struck 和 TLD 都能实时跟踪，Struck 是 2012 年之前最好的方法，T
 
 
 ### 相关滤波方法<br>
-相关滤波类方法 correlation filter 简称 CF，或 discriminative correlation filter 简称 DCF。
+相关滤波类方法 correlation filter 简称 CF，或 discriminative correlation filter 简称 DCF，该方法相关研究对目标跟踪类方法产生了深远影响。
 
 相关滤波法的发展过程是速度与精度权衡的过程：从 MOSSE(615FPS) 到 CSK(362FPS) 再到 KCF(172FPS)，DCF(292FPS)，CN(152FPS)，CN2(202FPS)，速度越来越慢，效果越来越好，且始终保持在高速水平。
 
-* MOSSE 是单通道灰度特征的相关滤波，因使用单通道图片，计算速度极快。<br>
+下面按时间顺序，以相关滤波为重点，梳理目标跟踪近几年的发展脉络。
+
+<br>
+
+#### 2012年及之前的工作：<br>
+29个顶尖的tracker在OTB100数据集上的表现：<br>
+按性能排序：Struck>SCM>ASLA；按速度排序：CSK(362fps)>CT(64fps)>TLD(28)。<br>
+
+<p align="center">
+	<img src="https://pic3.zhimg.com/80/v2-63db35d3d2f57965cea3c7226b759e60_720w.jpg" alt="Sample"  width="500">
+</p>
+
+<p align="center">
+	<img src="https://pic3.zhimg.com/80/v2-92fe48e735d4978c81073808a4ae1585_720w.jpg" alt="Sample"  width="500">
+</p>
+
+
+#### 2013-2016 相关滤波：<br>
+这段时期是相关滤波方法快速发展的时期。<br>
+* MOSSE ：单通道灰度特征的相关滤波，因使用单通道图片，计算速度极快。<br>
 * CSK 和 KCF 是牛津大学 [Henriques J F](http://www.robots.ox.ac.uk/~joao/index.html#) 的先后两篇研究成果，对后续研究产生了深远影响。CSK 在 MOSSE 的基础上扩展了密集采样和 kernel-trick ；KCF 在 CSK 的基础上扩展了多通道梯度的 HOG 特征。<br>
 * 林雪平大学 Martin Danelljan 用多通道颜色特征 Color Names (CN) 扩展 CSK 得到了不错的效果，算法简称 [CN](http://www.cvl.isy.liu.se/research/objrec/visualtracking/colvistrack/index.html)。
 
 HOG 是梯度特征，CN 是颜色特征，两者常搭配使用。
 
 <br>
-<br>
 
-##### 为解决尺度变化导致的跟踪目标丢失，2014 年前后有学者继续改进，添加了尺度自适应方法。<br>
+#### 2014 - 尺度自适应<br>
+为解决尺度变化导致的跟踪目标丢失，2014 年前后有学者继续改进，添加了尺度自适应方法。
 <p align="center">
 	<img src="https://pic1.zhimg.com/80/v2-ceafcb41ac2fca6a3b001bd5c240c93e_720w.jpg" alt="Sample"  width="500">
 </p>
@@ -132,9 +131,9 @@ HOG 是梯度特征，CN 是颜色特征，两者常搭配使用。
 * DSST 分步优化可采用不同的方法和特征，需要额外训练一个滤波器，每帧尺度检测需采样 33 个图像块并分别计算特征、加窗、FFT 等，尺度滤波器比平移滤波器慢很多。<br>
 
 <br>
-<br>
 
-##### 为改善对快速变形和快速运动目标的追踪效果，2015 年前后有学者继续改进，着重解决边界效应(Boundary Effets)问题。<br>
+#### 2015 - 边界效应<br>
+为改善对快速变形和快速运动目标的追踪效果，2015 年前后有学者继续改进，着重解决边界效应(Boundary Effets)问题。<br>
 <p align="center">
 	<img src="https://pic4.zhimg.com/80/v2-56155346ce01fb7037856683cd68a286_720w.jpg" alt="Sample"  width="500">
 </p>
