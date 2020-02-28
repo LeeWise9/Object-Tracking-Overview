@@ -1,7 +1,7 @@
 # 目标跟踪<br>
 这是一篇关于目标跟踪的综述，主要总结现有的常用数据集、目标跟踪算法、资源、研究热点等。<br>
 
-## 目标跟踪：<br>
+## 目标跟踪<br>
 任务背景：目标跟踪通常指单目标跟踪。跟踪目标由第一帧给定，可由人工标注或检测算法获取。跟踪算法再在后续帧紧跟此目标。<br>
 
 <p align="center">
@@ -21,7 +21,7 @@
 </p>
 
 
-## 常用数据集：<br>
+## 常用数据集<br>
 OTB50（OTB-2013），OTB100（OTB-2015）<br>
 官方测试代码与序列：[Visual Tracker Benchmark](http://cvlab.hanyang.ac.kr/tracker_benchmark/)<br>
 
@@ -36,7 +36,7 @@ VOT挑战赛平台与数据：[VOT Challenge | Challenges](http://votchallenge.n
 * VOT数据库每年更新，包括重新标注、改变评价指标等。<br>
 
 
-## 方法分类：<br>
+## 方法分类<br>
 * 生成（generative）模型方法。典型算法[ASMS](https://github.com/vojirt/asms)（125fps）。<br>
 * 判别（discriminative）模型方法。典型算法Struck（20fps）和TLD（28fps）。<br>
 * 深度学习（Deep ConvNet based）类方法。典型算法：[MDNet](http://cvlab.postech.ac.kr/research/mdnet/)，[TCNN](http://www.votchallenge.net/vot2016/download/44_TCNN.zip)，[SiamFC](http://www.robots.ox.ac.uk/~luca/siamese-fc.html)，[SiamFC-R](http://www.iqiyi.com/w_19ruirwrel.html#vfrm=8-8-0-1)。<br>
@@ -88,11 +88,12 @@ Struck 和 TLD 都能实时跟踪，Struck 是 2012 年之前最好的方法，T
 
 相关滤波法的发展过程是速度与精度权衡的过程：从 MOSSE(615FPS) 到 CSK(362FPS) 再到 KCF(172FPS)，DCF(292FPS)，CN(152FPS)，CN2(202FPS)，速度越来越慢，效果越来越好，且始终保持在高速水平。
 
-下面按时间顺序，以相关滤波为重点，梳理目标跟踪近几年的发展脉络。
-
 <br>
 
-#### 2012年及之前的工作：<br>
+## 发展梳理<br>
+下面按时间顺序，以相关滤波为重点，梳理目标跟踪近几年的发展脉络。<br>
+
+### 2012年及之前的工作：<br>
 29个顶尖的tracker在OTB100数据集上的表现：<br>
 按性能排序：Struck>SCM>ASLA；按速度排序：CSK(362fps)>CT(64fps)>TLD(28)。<br>
 
@@ -104,8 +105,9 @@ Struck 和 TLD 都能实时跟踪，Struck 是 2012 年之前最好的方法，T
 	<img src="https://pic3.zhimg.com/80/v2-92fe48e735d4978c81073808a4ae1585_720w.jpg" alt="Sample"  width="500">
 </p>
 
+<br>
 
-#### 2013-2016 相关滤波：<br>
+### 2013-2016 相关滤波：<br>
 这段时期是相关滤波方法快速发展的时期。<br>
 * MOSSE ：单通道灰度特征的相关滤波，因使用单通道图片，计算速度极快。<br>
 * CSK 和 KCF 是牛津大学 [Henriques J F](http://www.robots.ox.ac.uk/~joao/index.html#) 的先后两篇研究成果，对后续研究产生了深远影响。CSK 在 MOSSE 的基础上扩展了密集采样和 kernel-trick ；KCF 在 CSK 的基础上扩展了多通道梯度的 HOG 特征。<br>
@@ -115,7 +117,7 @@ HOG 是梯度特征，CN 是颜色特征，两者常搭配使用。
 
 <br>
 
-#### 2014 - 尺度自适应<br>
+### 2014 - 尺度自适应<br>
 为解决尺度变化导致的跟踪目标丢失，2014 年前后有学者继续改进，添加了尺度自适应方法。
 <p align="center">
 	<img src="https://pic1.zhimg.com/80/v2-ceafcb41ac2fca6a3b001bd5c240c93e_720w.jpg" alt="Sample"  width="500">
@@ -132,7 +134,7 @@ HOG 是梯度特征，CN 是颜色特征，两者常搭配使用。
 
 <br>
 
-#### 2015 - 边界效应<br>
+### 2015 - 边界效应<br>
 为改善对快速变形和快速运动目标的追踪效果，2015 年前后有学者继续改进，着重解决边界效应(Boundary Effets)问题。<br>
 <p align="center">
 	<img src="https://pic4.zhimg.com/80/v2-56155346ce01fb7037856683cd68a286_720w.jpg" alt="Sample"  width="500">
@@ -148,13 +150,51 @@ HOG 是梯度特征，CN 是颜色特征，两者常搭配使用。
 	<img src="https://pic4.zhimg.com/80/v2-8b5a1516ecc6c2bf4782b99ab031373a_720w.jpg" alt="Sample"  width="500">
 </p>
 
-两个解决方案都用更大的检测及更新图像块，训练作用域比较小的相关滤波器。但是 SRDCF 的滤波器系数从中心到边缘平滑过渡到 0，而 CFLM 直接用 0 填充滤波器边缘。
+两个解决方案都用更大的检测及更新图像块，训练作用域比较小的相关滤波器。但是 SRDCF 的滤波器系数从中心到边缘平滑过渡到 0，而 CFLM 直接用 0 填充滤波器边缘。<br>
 
+<br>
 
+### 2015-2017 卷积特征<br>
+[Martin Danelljan](http://www.cvl.isy.liu.se/research/objrec/visualtracking/) 结合深度特征和相关滤波方法取得了很好的效果。<br>
 
+* DSST 是 VOT2014 第一名，开创了平移滤波结合尺度滤波的方式。<br>
+* SRDCF 是 VOT2015 的第四名，优化目标增加了空间约束项。<br>
+* SRDCFdecon 在 SRDCF 的基础上，改进了样本和学习率问题。<br>
+* DeepSRDCF 是 VOT2015 第二名，将 HOG 特征替换为 CNN 卷积特征（基于 VGG），效果有了极大提升。论文测试了不同卷积层在目标跟踪任务中的表现，第 1 层表现最好，第 2 和第 5 次之。<br>
+<p align="center">
+	<img src="https://pic2.zhimg.com/80/v2-15eaa1e7a50c7ad671fb84a42c7bfc20_720w.jpg" alt="Sample"  width="400">
+</p>
 
+* Chao Ma 的 HCF，结合多层卷积特征，用了 VGG19 的 Conv5-4, Conv4-4 和 Conv3-4 的激活值作为特征，在VOT2016排在28名。<br>
+* C-COT 是 VOT2016 第一名，将 DeepSRDCF 的单层卷积的深度特征扩展为多成卷积的深度特征（VGG第 1 和 5 层）。<br>
+* Martin Danelljan 在 2017CVPR 的 ECO 是 C-COT 的加速版，从模型大小、样本集大小和更新策略三方面加速，CPU上速度 60FPS。<br>
 
+<br>
 
+### 2016-2017 颜色统计特征<br>
+2016 年，深度学习方法发挥优势，纯 CNN 方法与结合了深度特征的 CF 方法成绩排列靠前。<br>
+VOT2016竞赛主办方公开了[部分 tracker 代码和主页](http://votchallenge.net/vot2016/trackers.html)。<br>
+
+<p align="center">
+	<img src="https://pic2.zhimg.com/80/v2-26092e9dec4292c77d652b9738a89bf5_720w.jpg" alt="Sample"  width="500">
+</p>
+
+* C-COT 排第一，是结合了多层深度特征的相关滤波；<br>
+* TCNN 是纯 CNN 方法，VOT2016 的冠军；<br>
+* 纯颜色方法 [DAT](http://lrs.icg.tugraz.at/members/possegger#dat) 和 ASMS 都在中等水平；<br>
+* Luca Bertinetto 的 SiamFC 和 Staple 都表现不错。<br>
+
+HOG 对快速变形和快速运动效果不好，但对运动模糊及光照变化等情况鲁棒；颜色统计特征对变形、快速运动不敏感，但对光照变化和背景相似颜色效果不佳。这两类方法可以互补，即 DSST 和 DAT 可以互补结合。<br>
+
+<p align="center">
+	<img src="https://pic3.zhimg.com/80/v2-6953c7c282e662af9c37c8fe5462c477_720w.jpg" alt="Sample"  width="500">
+</p>
+
+* [Staple](http://www.robots.ox.ac.uk/~luca/staple.html) 是模板特征方法 DSST 和统计特征方法 DAT 的结合，速度高达 80FPS。<br>
+* 17CVPR 的 CSR-DCF，结合了相关滤波和颜色概率的方法，提出了空域可靠性和通道可靠性，性能直逼 C-COT，速度 13FPS。<br>
+<p align="center">
+	<img src="https://pic3.zhimg.com/80/v2-3a4be80f75f32314ca049d3e490d69b3_720w.jpg" alt="Sample"  width="500">
+</p>
 
 
 
@@ -193,6 +233,21 @@ HOG 是梯度特征，CN 是颜色特征，两者常搭配使用。
 * Danelljan M, Hager G, Shahbaz Khan F, et al. Learning spatially regularized correlation filters for visual tracking [C]// ICCV. 2015.<br>
 * Kiani Galoogahi H, Sim T, Lucey S. Correlation filters with limited boundaries [C]// CVPR, 2015.<br>
 * Kiani Galoogahi H, Fagg A, Lucey S. Learning Background-Aware Correlation Filters for Visual Tracking [C]// ICCV, 2017.<br>
+* Possegger H, Mauthner T, Bischof H. In defense of color-based model-free tracking [C]// CVPR, 2015.<br>
+* Bertinetto L, Valmadre J, Golodetz S, et al. Staple: Complementary Learners for Real-Time Tracking [C]// CVPR, 2016.<br>
+* Lukežič A, Vojíř T, Čehovin L, et al. Discriminative Correlation Filter with Channel and Spatial Reliability [C]// CVPR, 2017.<br>
+* Ma C, Huang J B, Yang X, et al. Hierarchical convolutional features for visual tracking [C]// ICCV, 2015.<br>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
