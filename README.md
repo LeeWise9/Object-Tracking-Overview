@@ -208,7 +208,6 @@ HOG 对快速变形和快速运动效果不好，但对运动模糊及光照变�
 <br>
 
 ## 参考文献：<br>
-* 作者：YaqiLYU，链接：https://www.zhihu.com/question/26493945/answer/156025576
 * Wu Y, Lim J, Yang M H. Online object tracking: A benchmark [C]// CVPR, 2013.<br>
 * Wu Y, Lim J, Yang M H. Object tracking benchmark [J]. TPAMI, 2015.<br>
 * Yilmaz A, Javed O, Shah M. Object tracking: A survey [J]. CSUR, 2006.<br>
