@@ -112,11 +112,11 @@ Struck 和 TLD 都能实时跟踪，Struck 是 2012 年之前最好的方法，T
 * CSK 和 KCF 是牛津大学 [Henriques J F](http://www.robots.ox.ac.uk/~joao/index.html#) 的先后两篇研究成果，对后续研究产生了深远影响。CSK 在 MOSSE 的基础上扩展了密集采样和 kernel-trick ；KCF 在 CSK 的基础上扩展了多通道梯度的 HOG 特征。<br>
 * 林雪平大学 Martin Danelljan 用多通道颜色特征 Color Names (CN) 扩展 CSK 得到了不错的效果，算法简称 [CN](http://www.cvl.isy.liu.se/research/objrec/visualtracking/colvistrack/index.html)。
 
-HOG 是梯度特征，CN 是颜色特征，两者互补常搭配使用。
+HOG 是梯度特征，CN 是颜色特征，两者常搭配使用。
 
 <br>
 <br>
-为解决尺度变化导致的跟踪目标丢失，2014 年前后有学者继续改进，添加了尺度自适应方法。<br>
+##### 为解决尺度变化导致的跟踪目标丢失，2014 年前后有学者继续改进，添加了尺度自适应方法。<br>
 <p align="center">
 	<img src="https://pic1.zhimg.com/80/v2-ceafcb41ac2fca6a3b001bd5c240c93e_720w.jpg" alt="Sample"  width="500">
 </p>
@@ -132,7 +132,7 @@ HOG 是梯度特征，CN 是颜色特征，两者互补常搭配使用。
 
 <br>
 <br>
-为改善对快速变形和快速运动目标的追踪效果，2015 年前后有学者继续改进，着重解决边界效应(Boundary Effets)问题。<br>
+##### 为改善对快速变形和快速运动目标的追踪效果，2015 年前后有学者继续改进，着重解决边界效应(Boundary Effets)问题。<br>
 <p align="center">
 	<img src="https://pic4.zhimg.com/80/v2-56155346ce01fb7037856683cd68a286_720w.jpg" alt="Sample"  width="500">
 </p>
