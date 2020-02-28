@@ -97,34 +97,34 @@ Struck 和 TLD 都能实时跟踪，Struck 是 2012 年之前最好的方法，T
 * [Winsty](http://www.winsty.net/) 的系列研究；<br>
 * VOT2015 的冠军 [MDNet](http://cvlab.postech.ac.kr/research/mdnet/)；<br>
 * VOT2016 的冠军 [TCNN](http://www.votchallenge.net/vot2016/download/44_TCNN.zip)；<br>
-* VOT2016 成绩优异的基于 ResNet 的[SiamFC-R](http://www.iqiyi.com/w_19ruirwrel.html#vfrm=8-8-0-1)；<br>
+* VOT2016 成绩优异的基于 ResNet 的 [SiamFC-R](http://www.iqiyi.com/w_19ruirwrel.html#vfrm=8-8-0-1)；<br>
 * 速度突出的 的[SiamFC](http://www.robots.ox.ac.uk/~luca/siamese-fc.html)（80FPS）；<br>
 * 速度更快的 GOTURN（100FPS），牺牲性能换取速度。<br>
-（这些方法可以在王强维护的 [benchmark_results](https://github.com/foolwood/benchmark_results)中找到）
+（这些方法可以在王强维护的 [benchmark_results](https://github.com/foolwood/benchmark_results) 中找到）
 
 
 ### 相关滤波方法<br>
 相关滤波类方法 correlation filter 简称 CF，或 discriminative correlation filter 简称 DCF。
 
-
 相关滤波法的发展过程是速度与精度权衡的过程：从 MOSSE(615FPS) 到 CSK(362FPS) 再到 KCF(172FPS)，DCF(292FPS)，CN(152FPS)，CN2(202FPS)，速度越来越慢，效果越来越好，且始终保持在高速水平。
 
-* MOSSE 是单通道灰度特征的相关滤波，因使用单通道图片，计算速度极快。
-
-* CSK 和 KCF 是牛津大学 [Henriques J F](http://www.robots.ox.ac.uk/~joao/index.html#) 的先后两篇研究成果，对后续研究产生了深远影响。CSK 在 MOSSE 的基础上扩展了密集采样和 kernel-trick ；KCF 在 CSK 的基础上扩展了多通道梯度的 HOG 特征。
-
+* MOSSE 是单通道灰度特征的相关滤波，因使用单通道图片，计算速度极快。<br>
+* CSK 和 KCF 是牛津大学 [Henriques J F](http://www.robots.ox.ac.uk/~joao/index.html#) 的先后两篇研究成果，对后续研究产生了深远影响。CSK 在 MOSSE 的基础上扩展了密集采样和 kernel-trick ；KCF 在 CSK 的基础上扩展了多通道梯度的 HOG 特征。<br>
 * 林雪平大学 Martin Danelljan 用多通道颜色特征 Color Names (CN) 扩展 CSK 得到了不错的效果，算法简称 [CN](http://www.cvl.isy.liu.se/research/objrec/visualtracking/colvistrack/index.html)。
 
 HOG 是梯度特征，CN 是颜色特征，两者互补常搭配使用。
 
-2014 年之后有学者继续改进，添加了尺度自适应方法。
+为解决尺度变化导致的跟踪目标丢失，2014 年前后有学者继续改进，添加了尺度自适应方法。<br>
+* 浙大 Yang Li 的工作 [SAMF](https://github.com/ihpdep/samf) ，在 KCF 的基础上用了 HOG+CN 特征，使用平移滤波器在多尺度缩放的图像块上进行目标检测，取响应最大的平移位置及所在尺度。<br>
+* Martin Danelljan 的 [DSST](http://www.cvl.isy.liu.se/research/objrec/visualtracking/scalvistrack/index.html)，使用了 HOG 特征，同时使用了平移滤波和尺度滤波。后续还研究出了加速版本 fDSST。<br>
 
-浙大 Yang Li 的工作 [SAMF](https://github.com/ihpdep/samf) ，在 KCF 的基础上用了 HOG+CN 特征，使用平移滤波器在多尺度缩放的图像块上进行目标检测，取响应最大的平移位置及所在尺度。
+上述两者有如下区别：<br>
+* SAMF 有 7 个尺度，DSST 有 33 个尺度；<br>
+* SAMF 同时优化平移和尺度，DSST 分步优化：先检测最佳平移再检测最佳尺度；<br>
+* SAMF 只需一个滤波器，每个尺度检测提取一次特征和 FFT，在图像较大时计算量比 DSST 高；<br>
+* DSST 分步优化可采用不同的方法和特征，需要额外训练一个滤波器，每帧尺度检测需采样 33 个图像块并分别计算特征、加窗、FFT 等，尺度滤波器比平移滤波器慢很多。<br>
 
-Martin Danelljan 的 [DSST](http://www.cvl.isy.liu.se/research/objrec/visualtracking/scalvistrack/index.html)，使用了 HOG 特征，同时使用了平移滤波和尺度滤波。后续还研究出了加速版本 fDSST。
-
-
-
+为改善对快速变形和快速运动目标的追踪效果，2015 年前后有学者继续改进，着重解决边界效应问题。
 
 
 
