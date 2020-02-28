@@ -114,8 +114,12 @@ Struck 和 TLD 都能实时跟踪，Struck 是 2012 年之前最好的方法，T
 
 HOG 是梯度特征，CN 是颜色特征，两者互补常搭配使用。
 
+<p align="center">
+	<img src="https://pic1.zhimg.com/80/v2-ceafcb41ac2fca6a3b001bd5c240c93e_720w.jpg" alt="Sample"  width="500">
+</p>
+
 为解决尺度变化导致的跟踪目标丢失，2014 年前后有学者继续改进，添加了尺度自适应方法。<br>
-* 浙大 Yang Li 的工作 [SAMF](https://github.com/ihpdep/samf) ，在 KCF 的基础上用了 HOG+CN 特征，使用平移滤波器在多尺度缩放的图像块上进行目标检测，取响应最大的平移位置及所在尺度。<br>
+* 浙江大学 Yang Li 的工作 [SAMF](https://github.com/ihpdep/samf) ，在 KCF 的基础上用了 HOG+CN 特征，使用平移滤波器在多尺度缩放的图像块上进行目标检测，取响应最大的平移位置及所在尺度。<br>
 * Martin Danelljan 的 [DSST](http://www.cvl.isy.liu.se/research/objrec/visualtracking/scalvistrack/index.html)，使用了 HOG 特征，同时使用了平移滤波和尺度滤波。后续还研究出了加速版本 fDSST。<br>
 
 上述两者有如下区别：<br>
@@ -124,7 +128,22 @@ HOG 是梯度特征，CN 是颜色特征，两者互补常搭配使用。
 * SAMF 只需一个滤波器，每个尺度检测提取一次特征和 FFT，在图像较大时计算量比 DSST 高；<br>
 * DSST 分步优化可采用不同的方法和特征，需要额外训练一个滤波器，每帧尺度检测需采样 33 个图像块并分别计算特征、加窗、FFT 等，尺度滤波器比平移滤波器慢很多。<br>
 
-为改善对快速变形和快速运动目标的追踪效果，2015 年前后有学者继续改进，着重解决边界效应问题。
+<p align="center">
+	<img src="https://pic4.zhimg.com/80/v2-56155346ce01fb7037856683cd68a286_720w.jpg" alt="Sample"  width="500">
+</p>
+
+为改善对快速变形和快速运动目标的追踪效果，2015 年前后有学者继续改进，着重解决边界效应(Boundary Effets)问题。<br>
+* Martin Danelljan 的 [SRDCF](http://www.cvl.isy.liu.se/research/objrec/visualtracking/regvistrack/index.html)。忽略了所有移位样本的边界部分像素，或者限制让边界附近滤波器系数接近 0。速度 167FPS，性能不如 KCF。<br>
+<p align="center">
+	<img src="https://pic2.zhimg.com/80/v2-c5bb2010d16e93c6b3661dc54e06684b_720w.jpg" alt="Sample"  width="500">
+</p>
+
+* Hamed Kiani 的 MOSSE 改进算法，基于灰度特征的 [CFLM](http://www.hamedkiani.com/cfwlb.html) 和基于 HOG 特征的 [BACF](http://www.hamedkiani.com/bacf.html)，采用较大尺寸检测图像块和较小尺寸滤波器来提高真实样本比例，采用 ADMM 迭代优化。BACF 性能超过 SRDCF，速度 35FPS。<br>
+<p align="center">
+	<img src="https://pic4.zhimg.com/80/v2-8b5a1516ecc6c2bf4782b99ab031373a_720w.jpg" alt="Sample"  width="500">
+</p>
+
+两个解决方案都用更大的检测及更新图像块，训练作用域比较小的相关滤波器。但是 SRDCF 的滤波器系数从中心到边缘平滑过渡到 0，而 CFLM 直接用 0 填充滤波器边缘。
 
 
 
@@ -139,15 +158,9 @@ HOG 是梯度特征，CN 是颜色特征，两者互补常搭配使用。
 
 
 
-
-
-
-
-
-
-
-
-
+<br>
+<br>
+<br>
 ## 参考文献：<br>
 * 作者：YaqiLYU，链接：https://www.zhihu.com/question/26493945/answer/156025576
 * Wu Y, Lim J, Yang M H. Online object tracking: A benchmark [C]// CVPR, 2013.<br>
@@ -171,8 +184,9 @@ HOG 是梯度特征，CN 是颜色特征，两者互补常搭配使用。
 * Li Y, Zhu J. A scale adaptive kernel correlation filter tracker with feature integration [C]// ECCV, 2014.<br>
 * Danelljan M, Häger G, Khan F, et al. Accurate scale estimation for robust visual tracking [C]// BMVC, 2014.<br>
 * Danelljan M, Hager G, Khan F S, et al. Discriminative Scale Space Tracking [J]. IEEE TPAMI, 2017.<br>
-
-
+* Danelljan M, Hager G, Shahbaz Khan F, et al. Learning spatially regularized correlation filters for visual tracking [C]// ICCV. 2015.<br>
+* Kiani Galoogahi H, Sim T, Lucey S. Correlation filters with limited boundaries [C]// CVPR, 2015.<br>
+* Kiani Galoogahi H, Fagg A, Lucey S. Learning Background-Aware Correlation Filters for Visual Tracking [C]// ICCV, 2017.<br>
 
 
 
