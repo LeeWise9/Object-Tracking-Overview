@@ -116,6 +116,7 @@ HOG 是梯度特征，CN 是颜色特征，两者常搭配使用。
 
 <br>
 <br>
+
 ##### 为解决尺度变化导致的跟踪目标丢失，2014 年前后有学者继续改进，添加了尺度自适应方法。<br>
 <p align="center">
 	<img src="https://pic1.zhimg.com/80/v2-ceafcb41ac2fca6a3b001bd5c240c93e_720w.jpg" alt="Sample"  width="500">
@@ -132,6 +133,7 @@ HOG 是梯度特征，CN 是颜色特征，两者常搭配使用。
 
 <br>
 <br>
+
 ##### 为改善对快速变形和快速运动目标的追踪效果，2015 年前后有学者继续改进，着重解决边界效应(Boundary Effets)问题。<br>
 <p align="center">
 	<img src="https://pic4.zhimg.com/80/v2-56155346ce01fb7037856683cd68a286_720w.jpg" alt="Sample"  width="500">
