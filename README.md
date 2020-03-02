@@ -206,13 +206,25 @@ HOG 对快速变形和快速运动效果不好，但对运动模糊及光照变�
 </p>
 
 ### 孪生网络家族<br>
+近年来在目标追踪领域，基于孪生网络的方法已经逐渐发展壮大并自成一家，取得了很好的效果。<br>
 
-
-
-
-
-
-
+* [SINT](https://link.zhihu.com/?target=https%3A//github.com/taotaoorange/SINT)
+* [Siamese-FC](https://link.zhihu.com/?target=https%3A//github.com/bertinetto/siamese-fc)
+* [CFNet](https://link.zhihu.com/?target=https%3A//github.com/bertinetto/cfnet)
+* [DSiam](https://link.zhihu.com/?target=https%3A//github.com/tsingqguo/DSiam)
+* [SINT++](https://link.zhihu.com/?target=https%3A//sites.google.com/view/cvpr2018sintplusplus/)
+* [SA-Siam](https://link.zhihu.com/?target=http%3A//openaccess.thecvf.com/content_cvpr_2018/papers/He_A_Twofold_Siamese_CVPR_2018_paper.pdf)
+* [RASNet](https://link.zhihu.com/?target=http%3A//openaccess.thecvf.com/content_cvpr_2018/papers/Wang_Learning_Attentions_Residual_CVPR_2018_paper.pdf)
+* [SiamRPN](https://link.zhihu.com/?target=https%3A//github.com/makalo/Siamese-RPN-tensorflow)
+* [SiamFC-tri](https://link.zhihu.com/?target=https%3A//github.com/shenjianbing/TripletTracking)
+* [StructSiam](https://link.zhihu.com/?target=https%3A//github.com/xiaobai1217/StructSiam)
+* [DaSiamRPN](https://link.zhihu.com/?target=https%3A//github.com/foolwood/DaSiamRPN)
+* [DenseSiam](https://link.zhihu.com/?target=http%3A//www.votchallenge.net/vot2018/trackers.html)
+* [MBST](https://link.zhihu.com/?target=https%3A//github.com/zhenxili96/MBST)
+* [C-RPN](https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1812.06148.pdf)
+* [SiamMask](https://link.zhihu.com/?target=http%3A//www.robots.ox.ac.uk/~qwang/SiamMask/)
+* [CIR](https://link.zhihu.com/?target=https%3A//gitlab.com/MSRA_NLPR/deeper_wider_siamese_trackers)
+* [SiamRPN++](https://link.zhihu.com/?target=http%3A//bo-li.info/SiamRPN%2B%2B/)
 
 
 <br>
