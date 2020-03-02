@@ -208,23 +208,24 @@ HOG 对快速变形和快速运动效果不好，但对运动模糊及光照变�
 ### 孪生网络家族<br>
 近年来在目标追踪领域，基于孪生网络的方法已经逐渐发展壮大并自成一家，取得了很好的效果。<br>
 
-* [SINT](https://link.zhihu.com/?target=https%3A//github.com/taotaoorange/SINT)
-* [Siamese-FC](https://link.zhihu.com/?target=https%3A//github.com/bertinetto/siamese-fc)
-* [CFNet](https://link.zhihu.com/?target=https%3A//github.com/bertinetto/cfnet)
-* [DSiam](https://link.zhihu.com/?target=https%3A//github.com/tsingqguo/DSiam)
-* [SINT++](https://link.zhihu.com/?target=https%3A//sites.google.com/view/cvpr2018sintplusplus/)
-* [SA-Siam](https://link.zhihu.com/?target=http%3A//openaccess.thecvf.com/content_cvpr_2018/papers/He_A_Twofold_Siamese_CVPR_2018_paper.pdf)
-* [RASNet](https://link.zhihu.com/?target=http%3A//openaccess.thecvf.com/content_cvpr_2018/papers/Wang_Learning_Attentions_Residual_CVPR_2018_paper.pdf)
-* [SiamRPN](https://link.zhihu.com/?target=https%3A//github.com/makalo/Siamese-RPN-tensorflow)
-* [SiamFC-tri](https://link.zhihu.com/?target=https%3A//github.com/shenjianbing/TripletTracking)
-* [StructSiam](https://link.zhihu.com/?target=https%3A//github.com/xiaobai1217/StructSiam)
-* [DaSiamRPN](https://link.zhihu.com/?target=https%3A//github.com/foolwood/DaSiamRPN)
-* [DenseSiam](https://link.zhihu.com/?target=http%3A//www.votchallenge.net/vot2018/trackers.html)
-* [MBST](https://link.zhihu.com/?target=https%3A//github.com/zhenxili96/MBST)
-* [C-RPN](https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1812.06148.pdf)
-* [SiamMask](https://link.zhihu.com/?target=http%3A//www.robots.ox.ac.uk/~qwang/SiamMask/)
-* [CIR](https://link.zhihu.com/?target=https%3A//gitlab.com/MSRA_NLPR/deeper_wider_siamese_trackers)
-* [SiamRPN++](https://link.zhihu.com/?target=http%3A//bo-li.info/SiamRPN%2B%2B/)
+* [SINT](https://link.zhihu.com/?target=https%3A//github.com/taotaoorange/SINT) 基于孪生网络的开山之作，首次开创性的将目标跟踪问题转化为一个 patch 块匹配问题<br>
+* [Siamese-FC](https://link.zhihu.com/?target=https%3A//github.com/bertinetto/siamese-fc) 孪生网络解决方案由此而兴，速度很快的端到端跟踪网络<br>
+* [CFNet](https://link.zhihu.com/?target=https%3A//github.com/bertinetto/cfnet) 将相关滤波（CF）整合为一个网络层，并将其嵌入到基于孪生网络的框架中<br>
+* [DSiam](https://link.zhihu.com/?target=https%3A//github.com/tsingqguo/DSiam) 添加了目标外观变换转换层和背景抑制变换层来提升网络的判别能力，增强了模型在线更新的能力<br>
+* [SINT++](https://link.zhihu.com/?target=https%3A//sites.google.com/view/cvpr2018sintplusplus/) SINT 算法的改进版，为了生成多样性的输入正样本块，使用到了 AutoEncoder 和 GAN 网络<br>
+* [SA-Siam](https://link.zhihu.com/?target=http%3A//openaccess.thecvf.com/content_cvpr_2018/papers/He_A_Twofold_Siamese_CVPR_2018_paper.pdf) 双网络分别学习不同的特征、在分支中添加注意力机制和多层特征的融合<br>
+* [RASNet](https://link.zhihu.com/?target=http%3A//openaccess.thecvf.com/content_cvpr_2018/papers/Wang_Learning_Attentions_Residual_CVPR_2018_paper.pdf) 引入 3 个注意力机制：残差注意力块，通道注意力块和通用注意力块<br>
+* [SiamRPN](https://link.zhihu.com/?target=https%3A//github.com/makalo/Siamese-RPN-tensorflow) 将目标检测中的RPN模块应用到跟踪任务中，将相似度计算问题转化为回归和分类问题<br>
+* [SiamFC-tri](https://link.zhihu.com/?target=https%3A//github.com/shenjianbing/TripletTracking) 将孪生网络领域中使用广泛的 triplet loss 应用到跟踪问题上来<br>
+* [StructSiam](https://link.zhihu.com/?target=https%3A//github.com/xiaobai1217/StructSiam) 通过多个局部结构块的组合形成纹理，将相似性比较问题转化为局部特征块的比较问题<br>
+* [DaSiamRPN](https://link.zhihu.com/?target=https%3A//github.com/foolwood/DaSiamRPN) 对 SiamRPN 的改进版，解决正负样本块不均衡问题和样本块的丰富性问题，即更关注于输入数据<br>
+* [DenseSiam](https://link.zhihu.com/?target=http%3A//www.votchallenge.net/vot2018/trackers.html) 将 Dense-Block 应用到跟踪网络中来，增加注意力模块提升模型自适应能力<br>
+* [MBST](https://link.zhihu.com/?target=https%3A//github.com/zhenxili96/MBST) 同时训练多个孪生网络分支，使用分支选择模块选择出最好的分支块计算输出结果<br>
+* [Siam-BM](https://link.zhihu.com/?target=https%3A//github.com/77695/Siam-BM) 通过角度评估模块解决目标的大尺度旋转，通过空间 mask 模块区分相似目标<br>
+* [C-RPN](https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1812.06148.pdf) 堆叠 SiamRPN，抑制简单样本块，获得更具代表性的样本块，通过多级回归使输出更准确<br>
+* [SiamMask](https://link.zhihu.com/?target=http%3A//www.robots.ox.ac.uk/~qwang/SiamMask/) 在 saimese-fc 的基础上添加 mask 分支，使用检测的结果更加准确，可以获取跟踪目标的 BB 和 Mask<br>
+* [CIR](https://link.zhihu.com/?target=https%3A//gitlab.com/MSRA_NLPR/deeper_wider_siamese_trackers) 使用 Siamese-fc 框架，将骨干网络更换成深层网络，通过 Crop 增强算法的平移不变性<br>
+* [SiamRPN++](https://github.com/STVIR/pysot) 使用超大数据集，使用 ResNet 做骨干，偏移中心均匀采样，使用多级级联的思路获取鲁棒的特征表示，使基于孪生网络的跟踪器真正超越了基于相关滤波器的跟踪算法<br>
 
 
 <br>
